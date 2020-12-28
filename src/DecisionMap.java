@@ -34,6 +34,25 @@ public class DecisionMap {
         return node;
     }
 
-    
+    //make a method that adds nodes to linked list
+    private void append(DecisionNode newNode){
+        //this checks is the head node is null or not
+        if(isEmpty() == true){
+            this.Head = newNode;
+            this.Tail = newNode;
+            this.Tail.setLinkedNode(null);
+        }
+        
+        this.Tail.setLinkedNode(newNode);
+        this.Tail = newNode;
+    }
+
+    public DecisionNode entryPoint() {
+        return Head;
+    }
+
+    private boolean isEmpty() {
+        return this.Head == null;
+    }
 
 }
