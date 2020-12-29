@@ -42,9 +42,23 @@ public class DecisionMap {
             this.Tail = newNode;
             this.Tail.setLinkedNode(null);
         }
-        
+
         this.Tail.setLinkedNode(newNode);
         this.Tail = newNode;
+    }
+
+    public void createUnorderedList(Scanner dataset){
+
+        dataset.useDelimiter(",");
+        do{
+            String line = dataset.nextLine();
+            DecisionNode node = makeNode(line);
+            append(node);
+        }
+        while (dataset.hasNext());
+        {
+            dataset.close();
+        }
     }
 
     public DecisionNode entryPoint() {
