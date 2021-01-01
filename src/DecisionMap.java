@@ -11,7 +11,10 @@ public class DecisionMap {
     DecisionNode Tail;
 
     DecisionMap() throws FileNotFoundException {
-        findFile("src/CSVFiles/SimpleMap.csv");
+
+        createUnorderedList(findFile("src/CSVFiles/SimpleMap.csv"));
+
+        createOrderedMap();
     }
 
     public Scanner findFile(String path) throws FileNotFoundException {
@@ -62,7 +65,34 @@ public class DecisionMap {
     }
 
     private void createOrderedMap(){
+        if(Head == null){
+            return;
+        }
+        else{
+            DecisionNode node = Head;
 
+            while (node != null){
+                int yesID = node.yesID;
+                int noID = node.noID;
+
+                DecisionNode YesNode = nodeFetch(yesID);
+                DecisionNode NoNode = nodeFetch(noID);
+
+                node = node.getLinkedNode();
+            }
+        }
+    }
+
+    private DecisionNode nodeFetch(int nodeID){
+        DecisionNode node = Head;
+
+        while (node != null){
+            if(node.getNodeID() == nodeID){
+                break;
+            }
+            node = node.getLinkedNode();
+        }
+        return node;
     }
 
     public DecisionNode entryPoint() {
