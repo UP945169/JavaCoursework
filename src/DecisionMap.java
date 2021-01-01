@@ -27,10 +27,13 @@ public class DecisionMap {
         String[] stringOfArrays = line.split(",");
         DecisionNode node = new DecisionNode();
 
-        node.setNodeID(valueOf(stringOfArrays[0]));
+/*        node.setNodeID(valueOf(stringOfArrays[0]));
         node.setYesID(valueOf(stringOfArrays[1]));
-        node.setNoID(valueOf(stringOfArrays[2]));
+        node.setNoID(valueOf(stringOfArrays[2]));*/
 
+        node.setNodeID(parseInt(stringOfArrays[0]));
+        node.setYesID(parseInt(stringOfArrays[1]));
+        node.setNoID(parseInt(stringOfArrays[2]));
         node.setDescription(stringOfArrays[3]);
         node.setQuestion(stringOfArrays[4]);
 
