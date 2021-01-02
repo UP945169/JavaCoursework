@@ -6,10 +6,13 @@ import static java.lang.Integer.parseInt;
 
 public class DecisionMapv2 {
 
-    public DecisionMapv2() throws FileNotFoundException{
-        findFile("src/CSVFiles/SimpleMap.csv");
+    DecisionNode head;
+    DecisionNode tail;
 
-//        makeNodes()
+    public DecisionMapv2() throws FileNotFoundException{
+        Scanner file = findFile("src/CSVFiles/SimpleMap.csv");
+
+        makeList(file);
     }
 
 
@@ -34,7 +37,24 @@ public class DecisionMapv2 {
         return node;
     }
 
-    public void makeList(){
+    public void makeList(Scanner file){
+        file.useDelimiter(",");
+        do{
+            String line = file.nextLine();
+            DecisionNode node = makeNodes(line);
+            addNodes(node);
+        }
+        while (file.hasNext());
+            file.close();
+    }
 
+    public void addNodes(DecisionNode newNode){
+        if(head == null){
+            this.head = newNode;
+            this.tail = newNode;
+            this.tail.setLinkedNode(null);
+        }
+        this.tail.setLinkedNode(newNode);
+        this.tail = newNode;
     }
 }
