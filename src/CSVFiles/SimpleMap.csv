@@ -10,11 +10,10 @@
 9,10,11,Walk Further,Hear Footsteps
 10,49,42,-,Leave
 11,49,12,-,Stay
-12,14,43,Scream is heard,"Try to decipher
-what monster it is "
+12,14,43,Scream is heard,Try to decipher what monster it is
 13,49,17,,Open door
 14,15,16,Realise what monster is,Walk Further
-15,13,,A Door?,-
+15,13,-,A Door?,-
 16,49,42,Run,You are lost
 17,18,19,Find Sword,-
 18,49,22,-,Dont pick it up
@@ -26,7 +25,7 @@ what monster it is "
 24,49,27,-,Didn't find exit
 25,49,26,-,Found exit
 26,49,-,-,Survived
-27,,43,,Died
+27,-,43,-,Died
 28,30,29,Hear a scream,-
 29,49,31,-,Investigate
 30,49,42,-,Leave
@@ -43,8 +42,7 @@ what monster it is "
 41,49,49,-,Run
 42,-,-,-,Exit Program
 43,44,45,-,Dont Know what the monster is
-44,49,43,"-
-",Leave
+44,49,43,-,Leave
 45,49,46,-,Keep Exploring
 46,47,48,Monster Appears,Fight it
 47,-,-,Live,-
