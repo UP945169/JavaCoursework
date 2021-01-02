@@ -38,13 +38,21 @@ public class DecisionNode {
         return yesID;
     }
     public void setYesID(int yesID) {
-        this.yesID = yesID;
+        try{
+            this.yesID = yesID;
+        }catch (NumberFormatException e){
+
+        }
     }
     public int getNoID() {
         return noID;
     }
     public void setNoID(int noID) {
-        this.noID = noID;
+        try{
+            this.noID = noID;
+        }catch (NumberFormatException e){
+
+        }
     }
     public String getDescription() {
         return description;

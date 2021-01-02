@@ -5,10 +5,10 @@ import java.util.Scanner;
 public class DecisionMapTest {
     public static void main(String[] args) throws FileNotFoundException{
 
-        DecisionMapv2 DM;
+        DecisionMap DM;
 
         try {
-            DM = new DecisionMapv2();
+            DM = new DecisionMap();
         }catch (FileNotFoundException FNF){
             System.out.println("FIle not found");
         }

@@ -9,7 +9,7 @@ public class DecisionMapv2 {
     public DecisionMapv2() throws FileNotFoundException{
         findFile("src/CSVFiles/SimpleMap.csv");
 
-        makeNodes()
+//        makeNodes()
     }
 
 
