@@ -13,38 +13,38 @@
 12,14,43,Scream is heard,Try to decipher what monster it is
 13,49,17,,Open door
 14,15,16,Realise what monster is,Walk Further
-15,13,-,A Door?,-
+15,13,49,A Door?,-
 16,49,42,Run,You are lost
 17,18,19,Find Sword,-
 18,49,22,-,Dont pick it up
 19,49,20,-,Pick up sword
 20,21,22,Monster Appears,Fight it
-21,49,-,-,Live
-22,49,-,-,Die
+21,49,49,-,Live
+22,49,49,-,Die
 23,25,24,Backtrack,-
 24,49,27,-,Didn't find exit
 25,49,26,-,Found exit
-26,49,-,-,Survived
-27,-,43,-,Died
+26,49,49,-,Survived
+27,49,43,-,Died
 28,30,29,Hear a scream,-
 29,49,31,-,Investigate
 30,49,42,-,Leave
 31,32,33,A Bone found,-
 32,49,36,-,Looks Human
 33,34,35,-,Looks like a monster
-34,-,-,Monster 1,Fight
-35,-,-,Monster 2,Fight
+34,49,49,Monster 1,Fight
+35,49,49,Monster 2,Fight
 36,38,37,-,Try to find more bodies
 37,49,42,Get lost,
 38,49,39,,Start running to find more bodies
 39,41,40,,Encounter a monster
 40,49,49,-,Fight
 41,49,49,-,Run
-42,-,-,-,Exit Program
+42,0,0,-,Exit Program
 43,44,45,-,Dont Know what the monster is
 44,49,43,-,Leave
 45,49,46,-,Keep Exploring
 46,47,48,Monster Appears,Fight it
-47,-,-,Live,-
-48,-,-,Die,-
-49,-,-,-,You have reached an empty case
+47,49,49,Live,-
+48,49,49,Die,-
+49,49,49,-,You have reached an empty case
