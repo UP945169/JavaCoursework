@@ -11,7 +11,7 @@
 10,49,42,-,Leave
 11,49,12,-,Stay
 12,14,43,Scream is heard,Try to decipher what monster it is
-13,49,17,,Open door
+13,49,17,-,Open door
 14,15,16,Realise what monster is,Walk Further
 15,13,49,A Door?,-
 16,49,42,Run,You are lost
@@ -36,8 +36,8 @@
 35,49,49,Monster 2,Fight
 36,38,37,-,Try to find more bodies
 37,49,42,Get lost,
-38,49,39,,Start running to find more bodies
-39,41,40,,Encounter a monster
+38,49,39,-,Start running to find more bodies
+39,41,40,-,Encounter a monster
 40,49,49,-,Fight
 41,49,49,-,Run
 42,0,0,-,Exit Program
