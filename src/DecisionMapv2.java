@@ -50,7 +50,7 @@ public class DecisionMapv2 {
     }
 
     public void addNodes(DecisionNode newNode){
-        if(head == null){
+        if(isEmpty()){
             this.head = newNode;
             this.tail = newNode;
             this.tail.setLinkedNode(null);
@@ -88,6 +88,14 @@ public class DecisionMapv2 {
                 node = node.getLinkedNode();
             }
         }
+    }
+
+    public DecisionNode entryPoint() {
+        return head;
+    }
+
+    private boolean isEmpty() {
+        return this.head == null;
     }
 
 }
