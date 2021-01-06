@@ -13,6 +13,7 @@ public class DecisionMapv2 {
         Scanner file = findFile("src/CSVFiles/SimpleMap.csv");
 
         makeList(file);
+        createOrderedMap();
     }
 
 
@@ -57,4 +58,36 @@ public class DecisionMapv2 {
         this.tail.setLinkedNode(newNode);
         this.tail = newNode;
     }
+
+    private DecisionNode nodeFetch(int NodeID){
+        DecisionNode node = head;
+
+        while(node != null){
+            if(node.getNodeID() == NodeID){
+                break;
+            }
+            node = node.getLinkedNode();
+        }
+        return node;
+    }
+
+    private void createOrderedMap(){
+        if(head == null){
+            return;
+        }
+        else{
+            DecisionNode node = head;
+
+            while (node != null){
+                int yesID = node.yesID;
+                int noID = node.noID;
+
+                DecisionNode YesNode = nodeFetch(yesID);
+                DecisionNode NoNode = nodeFetch(noID);
+
+                node = node.getLinkedNode();
+            }
+        }
+    }
+
 }
