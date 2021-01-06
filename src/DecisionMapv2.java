@@ -38,6 +38,16 @@ public class DecisionMapv2 {
         return node;
     }
 
+    public void addNodes(DecisionNode newNode){
+        if(isEmpty()){
+            this.head = newNode;
+            this.tail = newNode;
+            this.tail.setLinkedNode(null);
+        }
+        this.tail.setLinkedNode(newNode);
+        this.tail = newNode;
+    }
+
     public void makeList(Scanner file){
         file.useDelimiter(",");
         do{
@@ -49,15 +59,30 @@ public class DecisionMapv2 {
             file.close();
     }
 
-    public void addNodes(DecisionNode newNode){
-        if(isEmpty()){
-            this.head = newNode;
-            this.tail = newNode;
-            this.tail.setLinkedNode(null);
+    private void createOrderedMap(){
+        if(head == null){
+            return;
         }
-        this.tail.setLinkedNode(newNode);
-        this.tail = newNode;
+
+        DecisionNode nodelinker;
+        nodelinker = head;
+
+        while (nodelinker != null) {
+
+            int yesID = nodelinker.getYesID();
+            int noID = nodelinker.getNoID();
+
+            DecisionNode yesNode = nodeFetch(yesID);
+            DecisionNode noNode = nodeFetch(noID);
+
+            nodelinker.setYesNode(yesNode);
+            nodelinker.setNoNode(noNode);
+
+            nodelinker = nodelinker.getLinkedNode();
+
+        }
     }
+
 
     private DecisionNode nodeFetch(int NodeID){
         DecisionNode node = head;
@@ -71,24 +96,6 @@ public class DecisionMapv2 {
         return node;
     }
 
-    private void createOrderedMap(){
-        if(head == null){
-            return;
-        }
-        else{
-            DecisionNode node = head;
-
-            while (node != null){
-                int yesID = node.yesID;
-                int noID = node.noID;
-
-                DecisionNode YesNode = nodeFetch(yesID);
-                DecisionNode NoNode = nodeFetch(noID);
-
-                node = node.getLinkedNode();
-            }
-        }
-    }
 
     public DecisionNode entryPoint() {
         return head;
