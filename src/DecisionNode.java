@@ -1,5 +1,3 @@
-
-
 public class DecisionNode {
 
     int nodeID;
@@ -8,6 +6,11 @@ public class DecisionNode {
     String description;
     String question;
 
+    //this will allow me to show the user
+    //the options that they have by
+    //using the existing yes or no
+    //option and stop making things harder
+    String options;
 
     //the yesNode and noNode is going to be made
     //from the nodeID, yesID, noID, description and question
@@ -15,11 +18,10 @@ public class DecisionNode {
     DecisionNode yesNode;
     DecisionNode noNode;
 
-
-
     DecisionNode linkedNode;
 
     public DecisionNode() {}
+
 
     public DecisionNode getLinkedNode(){
         return linkedNode;
@@ -27,7 +29,6 @@ public class DecisionNode {
     public void setLinkedNode(DecisionNode linkedNode) {
         this.linkedNode = linkedNode;
     }
-
     public int getNodeID() {
         return nodeID;
     }
@@ -38,21 +39,13 @@ public class DecisionNode {
         return yesID;
     }
     public void setYesID(int yesID) {
-        try{
-            this.yesID = yesID;
-        }catch (NumberFormatException e){
-
-        }
+        this.yesID = yesID;
     }
     public int getNoID() {
         return noID;
     }
     public void setNoID(int noID) {
-        try{
-            this.noID = noID;
-        }catch (NumberFormatException e){
-
-        }
+        this.noID = noID;
     }
     public String getDescription() {
         return description;
@@ -78,5 +71,14 @@ public class DecisionNode {
     public void setNoNode(DecisionNode noNode) {
         this.noNode = noNode;
     }
+
+    public void setOptions(String options) {
+        this.options = options;
+    }
+
+    public String getOptions() {
+        return options;
+    }
+
 }
 

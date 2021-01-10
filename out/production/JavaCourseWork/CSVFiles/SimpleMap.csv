@@ -1,6 +1,4 @@
 0,2,1,-,Enter Cave
-1,49,3,-,Yes
-2,49,42,-,No
 3,4,5,Walk Further,Fork in passage
 4,49,6,-,Turn Left
 5,49,28,-,Turn Right
