@@ -6,7 +6,7 @@
 5,6,8,You are hiding,You are hiding,"Is it safe to stop hiding, no or yes?",
 6,7,7,NO,Stop Hiding,Carry on going,
 7,0,0,-,-,What monsters footprints are they monster 1 or monster 2?,
-8,0,0,YES,Keep exploring,Found a skull what is it?,Gotta complete
+8,0,0,YES,Keep exploring,Found a skull what is it?
 9,10,17,Scream is heard,Try to decipher what monster it is,You realize what is monster is or you dont know what the monster is?,
 10,11,14,You realized what monster it is,Walk Further,Do you find a door or do you run?,
 11,12,14,Found a door,"Find the sword to defeat all monsters ",Do you pick up the sword or not?,

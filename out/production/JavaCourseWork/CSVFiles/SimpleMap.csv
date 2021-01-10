@@ -1,48 +1,27 @@
-0,2,1,-,Enter Cave
-3,4,5,Walk Further,Fork in passage
-4,49,6,-,Turn Left
-5,49,28,-,Turn Right
-6,7,8,Find Bodies,Bodies are warm
-7,49,42,-,Leave
-8,49,9,-,Stay
-9,10,11,Walk Further,Hear Footsteps
-10,49,42,-,Leave
-11,49,12,-,Stay
-12,14,43,Scream is heard,Try to decipher what monster it is
-13,49,17,-,Open door
-14,15,16,Realise what monster is,Walk Further
-15,13,49,A Door?,-
-16,49,42,Run,You are lost
-17,18,19,Find Sword,-
-18,49,22,-,Dont pick it up
-19,49,20,-,Pick up sword
-20,21,22,Monster Appears,Fight it
-21,49,49,-,Live
-22,49,49,-,Die
-23,25,24,Backtrack,-
-24,49,27,-,Didn't find exit
-25,49,26,-,Found exit
-26,49,49,-,Survived
-27,49,43,-,Died
-28,30,29,Hear a scream,-
-29,49,31,-,Investigate
-30,49,42,-,Leave
-31,32,33,A Bone found,-
-32,49,36,-,Looks Human
-33,34,35,-,Looks like a monster
-34,49,49,Monster 1,Fight
-35,49,49,Monster 2,Fight
-36,38,37,-,Try to find more bodies
-37,49,42,Get lost,-
-38,49,39,-,Start running to find more bodies
-39,41,40,-,Encounter a monster
-40,49,49,-,Fight
-41,49,49,-,Run
-42,0,0,-,Exit Program
-43,44,45,-,Dont Know what the monster is
-44,49,43,-,Leave
-45,49,46,-,Keep Exploring
-46,47,48,Monster Appears,Fight it
-47,49,49,Live,-
-48,49,49,Die,-
-49,49,49,-,You have reached an empty case
+0,0,1,Enter cave,-,Do you want to enter the cave yes or no?,
+1,2,4,Walk Further,Fork in the passage,Do you want to turn left or right?,
+2,0,3,Find Bodies,Bodies are warm,Do you want to leave or stay?,
+3,5,9,Walk Further,Hear footsteps,Shall you hide or stay?,
+4,0,20,-,Hear a scream,Do you want to leave or investage?,
+5,6,8,You are hiding,You are hiding,"Is it safe to stop hiding, no or yes?",
+6,7,7,NO,Stop Hiding,Carry on going,
+7,0,0,-,-,What monsters footprints are they monster 1 or monster 2?,
+8,0,0,YES,Keep exploring,Found a skull what is it?
+9,10,17,Scream is heard,Try to decipher what monster it is,You realize what is monster is or you dont know what the monster is?,
+10,11,14,You realized what monster it is,Walk Further,Do you find a door or do you run?,
+11,12,14,Found a door,"Find the sword to defeat all monsters ",Do you pick up the sword or not?,
+12,0,0,DIED,You didn't pick up sword,-,
+13,0,0,Picked up sword,Monster appears,Fight the monster,
+14,15,16,RUN,You are lost,Did you find exit?,
+15,0,0,Found exit,You lived to tell on the story,-,
+16,0,0,Didn't find the exit,DIED,-,
+17,18,19,Dont Know what the monster is,-,Do you keep exploring or do you leave?,
+18,0,0,Keep exploring,-,Fight the monster,
+19,0,0,Leave,-,-,
+20,21,25,A bone found,-,Does it look like a monsters or looks human?,
+21,22,23,Looks like a monsters,Try to find monster,Did you find the monster or not?,
+22,24,24,Found Monster,-,-,
+23,24,24,Didn't find monster,-,-,
+24,0,0,DIED,-,-,
+25,26,27,Looks human,Try to find more bodies,Did you get lost or did you find more bodies?,
+26,0,0,GET LOST,-,-,
