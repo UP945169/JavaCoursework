@@ -28,7 +28,7 @@ public class FX extends Application implements EventHandler<ActionEvent>{
         node = DM.entryPoint();
         stage.setTitle("Java Coursework");
 
-        while (node != null){
+        //while (node != null){
             Text desc = new Text(node.getDescription());
             desc.setX(200);
             desc.setY(250);
@@ -43,8 +43,24 @@ public class FX extends Application implements EventHandler<ActionEvent>{
             right.setText("RIGHT");
             right.setTranslateX(300);
             right.setTranslateY(350);
+            
+            EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+                public void handle(ActionEvent e)
+                {
+                    if(right.getSource() == right){
+                        node = node.getYesNode();
+                    }
+                    if(event.getSource() == left){
+                        node = node.getYesNode();
+                    }
+                }
+            };
 
-            left = new Button();
+            // when button is pressed
+            right.setOnAction(event);
+
+
+        left = new Button();
             left.setText("LEFT");
 
             Group root = new Group();
@@ -54,16 +70,11 @@ public class FX extends Application implements EventHandler<ActionEvent>{
             stage.setScene(scene);
 
             stage.show();
-        }
+        //}
     }
 
     @Override
     public void handle(ActionEvent event) {
-        if(event.getSource() == right){
-            node = node.getYesNode();
-        }
-        if(event.getSource() == left){
-            node = node.getYesNode();
-        }
+
     }
 }
