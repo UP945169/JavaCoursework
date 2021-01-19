@@ -55,7 +55,7 @@ public class FX extends Application implements EventHandler<ActionEvent>{
 
             stage.show();
         }
-        }
+    }
 
     @Override
     public void handle(ActionEvent event) {
