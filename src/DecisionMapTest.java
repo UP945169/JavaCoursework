@@ -20,7 +20,6 @@ public class DecisionMapTest {
             System.out.println(node.getDescription());
             System.out.println(node.getQuestion());
 
-
             OptionCases();
             System.out.println(node.getOptions());
             int decision = input.nextInt();
@@ -33,6 +32,7 @@ public class DecisionMapTest {
                     node = node.getYesNode();
                     break;
             }
+
         }
     }
 
