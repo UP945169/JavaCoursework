@@ -1,5 +1,6 @@
 import javafx.application.Application;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -14,7 +15,11 @@ public class FX extends Application{
     Button right;
     Button left;
 
+    DecisionMap DM;
     DecisionNode node;
+    Text desc;
+    Text quest;
+    Text options;
 
     public static void main(String[] args) {
 
@@ -24,7 +29,7 @@ public class FX extends Application{
 
     @Override
     public void start(Stage stage) throws FileNotFoundException {
-        DecisionMap DM = new DecisionMap();
+        DM = new DecisionMap();
         node = DM.entryPoint();
 
         Group root = new Group();
@@ -33,51 +38,51 @@ public class FX extends Application{
 
         stage.setTitle("Java Coursework");
 
-        Text desc = new Text(node.getDescription());
-        desc.setX(200);
-        desc.setY(250);
-        Text quest = new Text(node.getQuestion());
-        quest.setX(200);
-        quest.setY(300);
-        Text options = new Text(node.getOptions());
-        options.setX(200);
-        options.setY(350);
+        mapUI();
 
         right = new Button();
         right.setText("RIGHT");
         right.setTranslateX(300);
         right.setTranslateY(350);
-
-        EventHandler<ActionEvent> eventHandler = new EventHandler<ActionEvent>() {
+        right.setOnAction(new EventHandler() {
             @Override
-            public void handle(ActionEvent event) {
-                right.setOnAction();
+            public void handle(Event event) {
                 node = node.getYesNode();
-            }
-        };
+                mapUI();
+                root.getChildren().addAll(desc,quest,options, right,left);
 
-        right.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent event) {
+                stage.setScene(scene);
 
+                stage.show();
             }
         });
 
-        right.addEventFilter(ActionEvent.ACTION, EventHandler);
 
         left = new Button();
         left.setText("LEFT");
         left.setTranslateX(250);
         left.setTranslateY(350);
 
-        left.setOnAction(new EventHandler<ActionEvent>() {
+        left.setOnAction(new EventHandler() {
             @Override
-            public void handle(ActionEvent event) {
+            public void handle(Event event) {
+
                 node = node.getNoNode();
+                mapUI();
+                root.getChildren().addAll(desc,quest,options, right,left);
+
+                stage.setScene(scene);
+
+                stage.show();
             }
         });
 
 
+        root.getChildren().addAll(desc,quest,options, right,left);
+
+        stage.setScene(scene);
+
+        stage.show();
 
 /*            stage.EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
                 public void handle(ActionEvent e) {
@@ -94,10 +99,24 @@ public class FX extends Application{
             right.setOnAction(event);
             left.setOnAction(event);*/
 
-            root.getChildren().addAll(desc,quest,options, right,left);
 
-            stage.setScene(scene);
+    }
 
-            stage.show();
+    public void mapUI(){
+
+        desc = new Text(node.getDescription());
+        desc.setX(200);
+        desc.setY(250);
+        quest = new Text(node.getQuestion());
+        quest.setX(200);
+        quest.setY(300);
+        options = new Text(node.getOptions());
+        options.setX(200);
+        options.setY(350);
+
+
+
+
+
     }
 }
