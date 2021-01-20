@@ -78,11 +78,11 @@ public class DecisionMap {
 
         }
 
-        cleanup();
+        //cleanup();
 
     }
 
-    private void cleanup(){
+/*    private void cleanup(){
         if (head == null) {
             return;
         }
@@ -97,7 +97,7 @@ public class DecisionMap {
             currentNode = nextNode;
             nextNode = currentNode.getLinkedNode();
         }
-    }
+    }*/
 
     //this takes each line and turns it into an array
     //then splits it up.
@@ -110,9 +110,9 @@ public class DecisionMap {
         //the methods below are using the integer class
         //since there is a static in the import we don't need
         //to use integer.valeOf.
-        n.setNodeID(valueOf(stringArray[0]));
-        n.setNoID(valueOf(stringArray[1]));
-        n.setYesID(valueOf(stringArray[2]));
+        n.setNodeID(Integer.parseInt(stringArray[0]));
+        n.setNoID(Integer.parseInt(stringArray[1]));
+        n.setYesID(Integer.parseInt(stringArray[2]));
 
         n.setDescription(stringArray[3]);
         n.setQuestion(stringArray[4]);
