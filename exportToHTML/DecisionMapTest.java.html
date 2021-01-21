@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>DecisionMapTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DecisionMapTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">java.io.FileNotFoundException</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">java.util.Scanner</span><span class="s0">;</span>
+
+<span class="s0">public class </span><span class="s1">DecisionMapTest {</span>
+    <span class="s0">public static void </span><span class="s1">main(String[] args) </span><span class="s0">throws </span><span class="s1">FileNotFoundException {</span>
+
+
+
+        <span class="s1">DecisionMap DM = </span><span class="s0">new </span><span class="s1">DecisionMap()</span><span class="s0">;</span>
+
+        <span class="s1">navigateMap(DM)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">navigateMap(DecisionMap DM){</span>
+        <span class="s1">Scanner input = </span><span class="s0">new </span><span class="s1">Scanner(System.in)</span><span class="s0">;</span>
+        <span class="s1">DecisionNode node = DM.entryPoint()</span><span class="s0">;</span>
+
+        <span class="s0">while</span><span class="s1">(node != </span><span class="s0">null</span><span class="s1">) {</span>
+
+            <span class="s1">System.out.println(node.getDescription())</span><span class="s0">;</span>
+            <span class="s1">System.out.println(node.getQuestion())</span><span class="s0">;</span>
+
+            <span class="s1">OptionCases()</span><span class="s0">;</span>
+            <span class="s1">System.out.println(node.getOptions())</span><span class="s0">;</span>
+            <span class="s0">int </span><span class="s1">decision = input.nextInt()</span><span class="s0">;</span>
+
+            <span class="s0">switch </span><span class="s1">(decision){</span>
+                <span class="s0">case </span><span class="s2">1</span><span class="s1">:</span>
+                    <span class="s1">node = node.getNoNode()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+                <span class="s0">case </span><span class="s2">2</span><span class="s1">:</span>
+                    <span class="s1">node = node.getYesNode()</span><span class="s0">;</span>
+                    <span class="s0">break;</span>
+            <span class="s1">}</span>
+
+        <span class="s1">}</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public static void </span><span class="s1">OptionCases(){</span>
+
+        <span class="s1">System.out.println(</span><span class="s3">&quot;Press 1 to go to the left option or 2 to go the right option !!:&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s0">return;</span>
+    <span class="s1">}</span>
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

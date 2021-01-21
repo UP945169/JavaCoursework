@@ -51,7 +51,6 @@ public class FX2 extends Application{
         right.setOnAction(new EventHandler() {
             @Override
             public void handle(Event event) {
-                node = node.getYesNode();
                 Text newQuestion = new Text(node.getYesNode().getOptions());
                 newQuestion.setX(100);
                 newQuestion.setY(200);
@@ -73,11 +72,10 @@ public class FX2 extends Application{
         left.setOnAction(new EventHandler() {
             @Override
             public void handle(Event event) {
-                node = node.getNoNode();
-
-
-                mapUI();
-
+                String description2 = node.getYesNode().getDescription();
+                Text text2 = new Text();
+                text2.setText(description2);
+                root.getChildren().add(text2);
                 /*
                 root.getChildren().addAll(desc,quest,options, right,left);
 
@@ -87,7 +85,6 @@ public class FX2 extends Application{
                 */
             }
         });
-
 
 
 

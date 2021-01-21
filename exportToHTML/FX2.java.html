@@ -1,0 +1,137 @@
+<html>
+<head>
+<title>FX2.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6897bb;}
+.s3 { color: #6a8759;}
+.s4 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+FX2.java</font>
+</center></td></tr></table>
+<pre><span class="s0">import </span><span class="s1">javafx.application.Application</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.event.Event</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.event.EventHandler</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.scene.Group</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.scene.Scene</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.scene.control.Button</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.scene.text.Text</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.stage.Stage</span><span class="s0">;</span>
+<span class="s0">import </span><span class="s1">javafx.concurrent.Task</span><span class="s0">;</span>
+
+<span class="s0">import </span><span class="s1">java.io.FileNotFoundException</span><span class="s0">;</span>
+
+
+<span class="s0">public class </span><span class="s1">FX2 </span><span class="s0">extends </span><span class="s1">Application{</span>
+    <span class="s1">Button right</span><span class="s0">;</span>
+    <span class="s1">Button left</span><span class="s0">;</span>
+
+    <span class="s1">DecisionMap DM</span><span class="s0">;</span>
+    <span class="s1">DecisionNode node</span><span class="s0">;</span>
+    <span class="s1">Text desc</span><span class="s0">;</span>
+    <span class="s1">Text quest</span><span class="s0">;</span>
+    <span class="s1">Text options</span><span class="s0">;</span>
+    <span class="s1">Group root</span><span class="s0">;</span>
+    <span class="s1">Scene scene</span><span class="s0">;</span>
+
+    <span class="s0">public static void </span><span class="s1">main(String[] args) {</span>
+
+        <span class="s1">launch(args)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s1">@Override</span>
+    <span class="s0">public void </span><span class="s1">start(Stage stage) </span><span class="s0">throws </span><span class="s1">FileNotFoundException {</span>
+        <span class="s1">DM = </span><span class="s0">new </span><span class="s1">DecisionMap()</span><span class="s0">;</span>
+        <span class="s1">node = DM.entryPoint()</span><span class="s0">;</span>
+
+        <span class="s1">root = </span><span class="s0">new </span><span class="s1">Group()</span><span class="s0">;</span>
+        <span class="s1">scene = </span><span class="s0">new </span><span class="s1">Scene(root</span><span class="s0">, </span><span class="s2">500</span><span class="s0">, </span><span class="s2">500</span><span class="s1">)</span><span class="s0">;</span>
+
+
+        <span class="s1">stage.setTitle(</span><span class="s3">&quot;Java Coursework&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">mapUI()</span><span class="s0">;</span>
+
+        <span class="s1">right = </span><span class="s0">new </span><span class="s1">Button()</span><span class="s0">;</span>
+        <span class="s1">right.setText(</span><span class="s3">&quot;RIGHT&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">right.setTranslateX(</span><span class="s2">300</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">right.setTranslateY(</span><span class="s2">350</span><span class="s1">)</span><span class="s0">;</span>
+
+
+        <span class="s1">right.setOnAction(</span><span class="s0">new </span><span class="s1">EventHandler() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">handle(Event event) {</span>
+                <span class="s1">node = node.getYesNode()</span><span class="s0">;</span>
+                <span class="s1">Text newQuestion = </span><span class="s0">new </span><span class="s1">Text(node.getYesNode().getOptions())</span><span class="s0">;</span>
+                <span class="s1">newQuestion.setX(</span><span class="s2">100</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">newQuestion.setY(</span><span class="s2">200</span><span class="s1">)</span><span class="s0">;</span>
+
+
+
+<span class="s4">/*                stage.setScene(scene); 
+ 
+                stage.show();*/</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+
+        <span class="s1">left = </span><span class="s0">new </span><span class="s1">Button()</span><span class="s0">;</span>
+        <span class="s1">left.setText(</span><span class="s3">&quot;LEFT&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">left.setTranslateX(</span><span class="s2">250</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">left.setTranslateY(</span><span class="s2">350</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">left.setOnAction(</span><span class="s0">new </span><span class="s1">EventHandler() {</span>
+            <span class="s1">@Override</span>
+            <span class="s0">public void </span><span class="s1">handle(Event event) {</span>
+                <span class="s1">node = node.getNoNode()</span><span class="s0">;</span>
+
+
+                <span class="s1">mapUI()</span><span class="s0">;</span>
+
+                <span class="s4">/* 
+                root.getChildren().addAll(desc,quest,options, right,left); 
+ 
+                stage.setScene(scene); 
+ 
+                stage.show(); 
+                */</span>
+            <span class="s1">}</span>
+        <span class="s1">})</span><span class="s0">;</span>
+
+
+
+
+        <span class="s1">root.getChildren().addAll(desc</span><span class="s0">,</span><span class="s1">quest</span><span class="s0">,</span><span class="s1">options</span><span class="s0">, </span><span class="s1">right</span><span class="s0">,</span><span class="s1">left)</span><span class="s0">;</span>
+
+        <span class="s1">stage.setScene(scene)</span><span class="s0">;</span>
+
+        <span class="s1">stage.show()</span><span class="s0">;</span>
+
+
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">mapUI(){</span>
+
+        <span class="s1">desc = </span><span class="s0">new </span><span class="s1">Text(node.getDescription())</span><span class="s0">;</span>
+        <span class="s1">desc.setX(</span><span class="s2">200</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">desc.setY(</span><span class="s2">250</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">quest = </span><span class="s0">new </span><span class="s1">Text(node.getQuestion())</span><span class="s0">;</span>
+        <span class="s1">quest.setX(</span><span class="s2">200</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">quest.setY(</span><span class="s2">300</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">options = </span><span class="s0">new </span><span class="s1">Text(node.getOptions())</span><span class="s0">;</span>
+        <span class="s1">options.setX(</span><span class="s2">200</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">options.setY(</span><span class="s2">350</span><span class="s1">)</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+</pre>
+</body>
+</html>

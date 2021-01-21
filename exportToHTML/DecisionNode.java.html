@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>DecisionNode.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+DecisionNode.java</font>
+</center></td></tr></table>
+<pre><span class="s0">public class </span><span class="s1">DecisionNode {</span>
+
+    <span class="s0">int </span><span class="s1">nodeID</span><span class="s0">;</span>
+    <span class="s0">int </span><span class="s1">yesID</span><span class="s0">;</span>
+    <span class="s0">int </span><span class="s1">noID</span><span class="s0">;</span>
+    <span class="s1">String description</span><span class="s0">;</span>
+    <span class="s1">String question</span><span class="s0">;</span>
+
+    <span class="s2">//this will allow me to show the user</span>
+    <span class="s2">//the options that they have by</span>
+    <span class="s2">//using the existing yes or no</span>
+    <span class="s2">//option and stop making things harder</span>
+    <span class="s1">String options</span><span class="s0">;</span>
+
+    <span class="s2">//the yesNode and noNode is going to be made</span>
+    <span class="s2">//from the nodeID, yesID, noID, description and question</span>
+    <span class="s2">//those are the linked nodes</span>
+    <span class="s1">DecisionNode yesNode</span><span class="s0">;</span>
+    <span class="s1">DecisionNode noNode</span><span class="s0">;</span>
+
+    <span class="s1">DecisionNode linkedNode</span><span class="s0">;</span>
+
+    <span class="s0">public </span><span class="s1">DecisionNode() {}</span>
+
+
+    <span class="s0">public </span><span class="s1">DecisionNode getLinkedNode(){</span>
+        <span class="s0">return </span><span class="s1">linkedNode</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setLinkedNode(DecisionNode linkedNode) {</span>
+        <span class="s0">this</span><span class="s1">.linkedNode = linkedNode</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public int </span><span class="s1">getNodeID() {</span>
+        <span class="s0">return </span><span class="s1">nodeID</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setNodeID(</span><span class="s0">int </span><span class="s1">nodeID) {</span>
+        <span class="s0">this</span><span class="s1">.nodeID = nodeID</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public int </span><span class="s1">getYesID(){</span>
+        <span class="s0">return </span><span class="s1">yesID</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setYesID(</span><span class="s0">int </span><span class="s1">yesID) {</span>
+        <span class="s0">this</span><span class="s1">.yesID = yesID</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public int </span><span class="s1">getNoID() {</span>
+        <span class="s0">return </span><span class="s1">noID</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setNoID(</span><span class="s0">int </span><span class="s1">noID) {</span>
+        <span class="s0">this</span><span class="s1">.noID = noID</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">String getDescription() {</span>
+        <span class="s0">return </span><span class="s1">description</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setDescription(String description) {</span>
+        <span class="s0">this</span><span class="s1">.description = description</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">String getQuestion() {</span>
+        <span class="s0">return </span><span class="s1">question</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setQuestion(String question) {</span>
+        <span class="s0">this</span><span class="s1">.question = question</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">DecisionNode getYesNode() {</span>
+        <span class="s0">return </span><span class="s1">yesNode</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setYesNode(DecisionNode yesNode) {</span>
+        <span class="s0">this</span><span class="s1">.yesNode = yesNode</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public </span><span class="s1">DecisionNode getNoNode() {</span>
+        <span class="s0">return </span><span class="s1">noNode</span><span class="s0">;</span>
+    <span class="s1">}</span>
+    <span class="s0">public void </span><span class="s1">setNoNode(DecisionNode noNode) {</span>
+        <span class="s0">this</span><span class="s1">.noNode = noNode</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public void </span><span class="s1">setOptions(String options) {</span>
+        <span class="s0">this</span><span class="s1">.options = options</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">public </span><span class="s1">String getOptions() {</span>
+        <span class="s0">return </span><span class="s1">options</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+<span class="s1">}</span>
+
+</pre>
+</body>
+</html>

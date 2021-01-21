@@ -114,9 +114,5 @@ public class FX extends Application{
         options.setX(200);
         options.setY(350);
 
-
-
-
-
     }
 }
