@@ -1,15 +1,11 @@
+package OLDCODE;
+
 import java.awt.*;
-import java.awt.event.*;
 import java.io.FileNotFoundException;
 
 public class AWT {
     private static Button right;
     private static Button left;
-
-
-    public static void main(String[] args) throws FileNotFoundException {
-        application();
-    }
 
     public static void application() throws FileNotFoundException {
         right = new Button();
@@ -32,7 +28,6 @@ public class AWT {
         left.setBounds(100, 200, 50, 50);
         f.add(left);
 
-
         Label description = new Label();
         description.setText(node.getDescription());
         description.setBounds(100, 50, 150, 50);
@@ -47,8 +42,6 @@ public class AWT {
         options.setText(node.getOptions());
         options.setBounds(100, 150, 300, 50);
         f.add(options);
-
-
 
         right.addActionListener(e -> {
             f.remove(description);
@@ -68,7 +61,7 @@ public class AWT {
             f.add(newoptions);
             f.setVisible(true);
 
-    });
+        });
 
         left.addActionListener(e -> {
             f.remove(description);
@@ -88,16 +81,13 @@ public class AWT {
             f.add(newOptions);
             f.setVisible(true);
         });
-
         f.setLayout(null);
-        f.setVisible(true);    
-        
-
-    }
-    public void actionPerformed(ActionEvent e){
-        if(e.getSource().equals(right)){
-
+        f.setVisible(true);
         }
-    }
 
+
+
+    public static void main(String[] args) throws FileNotFoundException {
+        application();
+    }
 }

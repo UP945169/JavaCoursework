@@ -1,0 +1,36 @@
+public void actionPerformed(ActionEvent e){
+        if(e.getSource() == right){
+            f.remove(description);
+            f.remove(question);
+            f.remove(options);
+            newDescriptionRight.setText(node.getYesNode().getDescription());
+            newQuestionRight.setText(node.getYesNode().getQuestion());
+            newOptionsRight.setText(node.getYesNode().getOptions());
+            newDescriptionRight.setBounds(100, 50, 300, 50);
+
+            newQuestionRight.setBounds(100, 100, 300, 50);
+
+            newOptionsRight.setBounds(100, 150, 300, 50);
+            f.add(newDescriptionRight);
+            f.add(newQuestionRight);
+            f.add(newOptionsRight);
+        }
+        if(e.getSource() == left){
+            f.remove(description);
+            f.remove(question);
+            f.remove(options);
+
+
+            newDescriptionLeft.setText(node.getNoNode().getDescription());
+            newDescriptionLeft.setBounds(100, 50, 300, 50);
+
+            newQuestionLeft.setText(node.getNoNode().getQuestion());
+            newQuestionLeft.setBounds(100, 100, 300, 50);
+
+            newOptionsLeft.setText(node.getNoNode().getOptions());
+            newOptionsLeft.setBounds(100, 150, 300, 50);
+            f.add(newDescriptionLeft);
+            f.add(newQuestionLeft);
+            f.add(newOptionsLeft);
+        }
+    }
