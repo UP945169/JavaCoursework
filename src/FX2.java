@@ -1,5 +1,3 @@
-package OLDCODE;
-
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -12,7 +10,7 @@ import javafx.stage.Stage;
 import java.io.FileNotFoundException;
 
 
-public class FX extends Application{
+public class FX2 extends Application{
     Button right;
     Button left;
 
@@ -21,6 +19,8 @@ public class FX extends Application{
     Text desc;
     Text quest;
     Text options;
+    Group root;
+    Scene scene;
 
     public static void main(String[] args) {
 
@@ -33,8 +33,8 @@ public class FX extends Application{
         DM = new DecisionMap();
         node = DM.entryPoint();
 
-        Group root = new Group();
-        Scene scene = new Scene(root, 500, 500);
+        root = new Group();
+        scene = new Scene(root, 500, 500);
 
 
         stage.setTitle("Java Coursework");
@@ -45,12 +45,16 @@ public class FX extends Application{
         right.setText("RIGHT");
         right.setTranslateX(300);
         right.setTranslateY(350);
+
+
         right.setOnAction(new EventHandler() {
             @Override
             public void handle(Event event) {
-                node = node.getYesNode();
-                mapUI();
-                root.getChildren().addAll(desc,quest,options, right,left);
+                Text newQuestion = new Text(node.getYesNode().getOptions());
+                newQuestion.setX(100);
+                newQuestion.setY(200);
+
+
 
 /*                stage.setScene(scene);
 
@@ -67,16 +71,20 @@ public class FX extends Application{
         left.setOnAction(new EventHandler() {
             @Override
             public void handle(Event event) {
-
-                node = node.getNoNode();
-                mapUI();
+                String description2 = node.getYesNode().getDescription();
+                Text text2 = new Text();
+                text2.setText(description2);
+                root.getChildren().add(text2);
+                /*
                 root.getChildren().addAll(desc,quest,options, right,left);
 
-/*                stage.setScene(scene);
+                stage.setScene(scene);
 
-                stage.show();*/
+                stage.show();
+                */
             }
         });
+
 
 
         root.getChildren().addAll(desc,quest,options, right,left);
@@ -84,21 +92,6 @@ public class FX extends Application{
         stage.setScene(scene);
 
         stage.show();
-
-/*            stage.EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
-                public void handle(ActionEvent e) {
-                    if (e.getSource() == right) {
-                        node = node.getYesNode();
-                    }
-                    if (e.getSource() == left) {
-                        node = node.getNoNode();
-                    }
-                }
-            };
-
-            // when button is pressed
-            right.setOnAction(event);
-            left.setOnAction(event);*/
 
 
     }
@@ -114,6 +107,6 @@ public class FX extends Application{
         options = new Text(node.getOptions());
         options.setX(200);
         options.setY(350);
-
     }
+
 }

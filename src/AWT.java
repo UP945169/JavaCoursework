@@ -1,5 +1,3 @@
-package OLDCODE;
-
 import java.awt.*;
 import java.io.FileNotFoundException;
 
